@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+  --background-green: #7bdcb5;
+  --background-yellow: #e1ad01;
+  --background-cream: #eadfbb;
+  --color-white: #fff;
+  --color-black: #000;
+}
+
+.bg-green {
+  background-color: var(--background-green);
+}
+
+.bg-yellow {
+  background-color: var(--background-yellow);
+}
+
+.bg-cream {
+  background-color: var(--background-cream);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.text-black {
+  color: var(--color-white);
+}
