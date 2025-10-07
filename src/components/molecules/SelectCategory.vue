@@ -12,15 +12,22 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
 import { useFoodStore } from '../../stores';
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const storeFood = useFoodStore()
 const valCategory = ref<string>('')
 const router = useRouter()
+const route = useRoute()
 
 
 watch(valCategory, (val) => {
-  if (val) router.push({ name: 'category', params: { name: val } })
+  if (val) {
+    router.push({ name: 'category', params: { name: val } })
+  }
+})
+
+watch(() => route.name === 'home', () => {
+  valCategory.value = ''
 })
 
 onMounted(async () => {
