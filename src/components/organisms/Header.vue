@@ -3,11 +3,16 @@
     <section class="flex items-center">
       <img class="w-32" src="./../../assets/name.png" alt="logo">
     </section>
-    <section>Buscador</section>
+    <section class="flex items-center justify-end font-medium">
+      <SelectCategory />
+    </section>
   </header>
 </template>
 
 <script setup lang="ts">
+
+import SelectCategory from '../molecules/SelectCategory.vue';
+
 
 </script>
 

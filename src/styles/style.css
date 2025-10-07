@@ -6,6 +6,7 @@
   --background-cream: #eadfbb;
   --color-white: #fff;
   --color-black: #000;
+  --color-green: #116041;  
 }
 
 .bg-green {
@@ -25,5 +26,8 @@
 }
 
 .text-black {
-  color: var(--color-white);
+  color: var(--color-black);
+}
+.text-green {
+  color: var(--color-green);
 }
