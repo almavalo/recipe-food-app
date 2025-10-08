@@ -4,14 +4,13 @@ import Header from './components/organisms/Header.vue';
 </script>
 
 <template>
-  <container class="flex flex-col min-h-screen">
+  <section class="flex flex-col min-h-screen">
     <Header />
-    <main class="py-6 min-h-screen max-w-7xl">
+    <main class="flex-grow py-6  w-full">
       <router-view />
     </main>
     <Footer />
-
-  </container>
+  </section>
 
 </template>
 

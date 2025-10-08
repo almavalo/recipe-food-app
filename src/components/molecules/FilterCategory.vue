@@ -1,9 +1,9 @@
 <template>
-  <section class="w-400px mx-3 my-auto flex justify-center mb-5">
+  <section class="w-full px-4 my-4 flex justify-center">
     <input 
-      class="w-400px h-53px rounded-md py-1 border-2 border-green-700 focus:border-yellow-600 p-2"
+      class="w-full max-w-xl h-12 rounded-md border-2 border-green-700 focus:border-yellow-600 px-4 py-2 text-base shadow-sm transition duration-200"
       type="text" 
-      placeholder="Filter by name:" 
+      placeholder="Filtrar por nombre..." 
       v-model="nameFood"
     >
   </section>
