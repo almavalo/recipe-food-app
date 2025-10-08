@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import Header from './components/organisms/Header.vue';
-
-
-
 </script>
 
 <template>
-  <header class="flex flex-col">
+  <container class="flex flex-col min-h-screen">
     <Header />
-  </header>
-  <main class="flex-1 px-4 py-6 min-h-screen ">
-    <router-view />
-  </main>
+    <main class="px-4 py-6 min-h-screen max-w-7xl mx-auto">
+      <router-view />
+    </main>
+
+  </container>
 
 </template>
 
