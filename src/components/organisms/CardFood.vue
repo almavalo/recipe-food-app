@@ -1,10 +1,10 @@
 <template>
   <article class="border rounded shadow-md overflow-hidden bg-cream hover:scale-[1.02] transition">
     <ImgFood :src="meal.strMealThumb" :alt="meal.strMeal"/>
-    <section class="p-4">
+    <section class="p-4 text-center">
       <h3 class="text-lg font-semibold text-green mb-2">{{ meal.strMeal }}</h3>
-      <h5 class="font-semibold text-black mb-2">{{ meal.strMeal }}</h5>
-      <BtnFood label="Ver receta" :onClick="goDetail"/>
+      <h5 class="font-semibold text-black mb-2">{{ meal.strCategory }}</h5>
+      <BtnFood label="Ver receta" class="cursor-pointer hover:scale-[1.2] transition" :onClick="goDetail"/>
     </section>
   </article>
 </template>

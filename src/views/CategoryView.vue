@@ -7,10 +7,10 @@
 
 <script setup lang="ts">
 import { onMounted, watch } from 'vue';
-import { useFoodStore } from '../stores';
 import { useRoute } from 'vue-router';
+import { useCategoryStore } from '../stores/useCategoryStore';
 
-const foodStore = useFoodStore();
+const foodStore = useCategoryStore();
 const route = useRoute()
 
 onMounted(() => {

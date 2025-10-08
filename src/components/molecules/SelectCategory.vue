@@ -11,10 +11,10 @@
 
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
-import { useFoodStore } from '../../stores';
 import { useRoute, useRouter } from 'vue-router'
+import { useCategoryStore } from '../../stores/useCategoryStore';
 
-const storeFood = useFoodStore()
+const storeFood = useCategoryStore()
 const valCategory = ref<string>('')
 const router = useRouter()
 const route = useRoute()

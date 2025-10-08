@@ -5,7 +5,7 @@ import Header from './components/organisms/Header.vue';
 <template>
   <container class="flex flex-col min-h-screen">
     <Header />
-    <main class="px-4 py-6 min-h-screen max-w-7xl mx-auto">
+    <main class="py-6 min-h-screen max-w-7xl mx-auto">
       <router-view />
     </main>
 
