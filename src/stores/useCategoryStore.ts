@@ -6,7 +6,7 @@ import type { Meal, Meals } from "../interfaces/meals";
 export const useCategoryStore = defineStore("category", () => {
   const allCategories = ref<Category[]>([]);
   const meal = ref<Meal[]>([]);
-
+  const loader = ref(false);
 
   const getAllCategories = async () => {
     try {
@@ -21,6 +21,7 @@ export const useCategoryStore = defineStore("category", () => {
   };
 
   const getCategory = async (val: string) => {
+     loader.value = true;
     try {
       const resp = await fetch(
         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${val}`
@@ -29,15 +30,17 @@ export const useCategoryStore = defineStore("category", () => {
       meal.value = data.meals;
     } catch (error) {
       throw new Error("Error");
-    } 
+    }
+    finally {
+      loader.value = false;
+    }
   };
-
-
 
   return {
     //Variables
     allCategories,
     meal,
+    loader,
     //Methods
     getAllCategories,
     getCategory,

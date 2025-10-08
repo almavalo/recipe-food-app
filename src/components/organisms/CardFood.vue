@@ -1,5 +1,5 @@
 <template>
-  <article class="border rounded shadow-md overflow-hidden bg-cream hover:scale-[1.02] transition">
+  <article class="w-full max-w-sm mx-auto border rounded shadow-md overflow-hidden bg-cream hover:scale-[1.02] transition">
     <ImgFood :src="meal.strMealThumb" :alt="meal.strMeal"/>
     <section class="p-4 text-center">
       <h3 class="text-lg font-semibold text-green mb-2">{{ meal.strMeal }}</h3>

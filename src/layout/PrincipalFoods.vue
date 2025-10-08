@@ -1,5 +1,5 @@
 <template>
-  <section :class="['w-full', 'px-4', 'gap-4', 'grid', mealCount === 3 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' :
+  <section :class="['px-4' ,'w-full','gap-4', 'grid', 'justify-center',mealCount === 3 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' :
     mealCount == 2 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2' : 'grid-cols-1']">
     <CardFood v-for="meal in storeFood.mealByLetter" :key="meal.idMeal" :meal="meal" />
   </section>

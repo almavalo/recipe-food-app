@@ -12,8 +12,11 @@
     <div class="flex transition-transform duration-300 ease-in-out" :style="carouselStyle">
       <div v-for="(category) in categories" :key="category.idCategory" class=" w-1/6 px-2">
         <div class="flex flex-col items-center">
-          <img :src="category.strCategoryThumb" :alt="category.strCategory"
-            class="w-24 h-24 object-cover rounded-full border-2 bg-cream" />
+          <img
+          @click="goCategory(category.strCategory)"
+          :src="category.strCategoryThumb"
+           :alt="category.strCategory"
+           class="cursor-pointer w-16 sm:w-20 md:w-24 h-24 object-cover rounded-full border-2 bg-cream" />
           <p class="mt-2 text-center text-sm font-semibold text-green">
             {{ category.strCategory }}
           </p>
@@ -34,6 +37,9 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useCategoryStore } from '../../stores/useCategoryStore'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const store = useCategoryStore()
 const categories = store.allCategories
@@ -44,7 +50,6 @@ const visibleCount = 6
 const isAtStart = computed(() => currentIndex.value === 0)
 const isAtEnd = computed(() => currentIndex.value >= categories.length - visibleCount)
 
-
 const carouselStyle = computed(() => {
   const offset = currentIndex.value * (100 / visibleCount)
   return {
@@ -53,12 +58,16 @@ const carouselStyle = computed(() => {
   }
 })
 
-function next() {
+const next = () => {
   if (!isAtEnd.value) currentIndex.value++
 }
 
-function prev() {
+const prev = () => {
   if (!isAtStart.value) currentIndex.value--
+}
+
+const goCategory = (val: string) => {
+  router.push({ name: 'category', params: { name: val } })
 }
 
 </script>
