@@ -49,7 +49,7 @@ export const useCategoryStore = defineStore("category", () => {
       const foodName = food.strMeal.toLowerCase();
 
       if (foodName.includes(formatedName)) {
-        return meal;
+        return food;
       }
     });
     meal.value = results;

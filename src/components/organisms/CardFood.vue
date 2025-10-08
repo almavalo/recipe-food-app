@@ -20,7 +20,7 @@ const props = defineProps<{meal: Meal}>()
 const router = useRouter()
 
 const goDetail = () => {
-   router.push({ name: 'meal', params: { id: props.meal.idMeal } })
+   router.push({ name: 'recipe', params: { id: props.meal.idMeal } })
 }
 
 

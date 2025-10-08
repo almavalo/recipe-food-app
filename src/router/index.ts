@@ -10,7 +10,7 @@ const routes = [
     component: () => import("../views/CategoryView.vue"),
   },
   {
-    path: "/recipe",
+    path: "/recipe/:id",
     name: "recipe",
     component: () => import("../views/RecipeView.vue"),
   },
