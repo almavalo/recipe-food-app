@@ -7,6 +7,7 @@ export const useCategoryStore = defineStore("category", () => {
   const allCategories = ref<Category[]>([]);
   const meal = ref<Meal[]>([]);
   const loader = ref(false);
+  const allMeals = ref<Meal[]>([]);
 
   const getAllCategories = async () => {
     try {
@@ -21,19 +22,37 @@ export const useCategoryStore = defineStore("category", () => {
   };
 
   const getCategory = async (val: string) => {
-     loader.value = true;
+    loader.value = true;
     try {
       const resp = await fetch(
         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${val}`
       );
       const data: Meals = await resp.json();
+      allMeals.value = data.meals;
       meal.value = data.meals;
     } catch (error) {
       throw new Error("Error");
-    }
-    finally {
+    } finally {
       loader.value = false;
     }
+  };
+
+  const filterByName = (name: string) => {
+    const formatedName = name.toLowerCase();
+
+    if (!formatedName) {
+      meal.value = allMeals.value;
+      return;
+    }
+
+    const results = meal.value.filter((food) => {
+      const foodName = food.strMeal.toLowerCase();
+
+      if (foodName.includes(formatedName)) {
+        return meal;
+      }
+    });
+    meal.value = results;
   };
 
   return {
@@ -44,5 +63,6 @@ export const useCategoryStore = defineStore("category", () => {
     //Methods
     getAllCategories,
     getCategory,
+    filterByName,
   };
 });
